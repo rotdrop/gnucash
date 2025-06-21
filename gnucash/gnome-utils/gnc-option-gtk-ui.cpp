@@ -805,6 +805,42 @@ create_option_widget<GncOptionUIType::DATE_BOTH>(GncOption& option,
 using GncOptionAccountList = std::vector<GncGUID>;
 
 static void
+account_expand_all_cb(GtkWidget *widget, gpointer data)
+{
+    GncOption* option = static_cast<decltype(option)>(data);
+    GncTreeViewAccount *tree_view;
+
+    tree_view = GNC_TREE_VIEW_ACCOUNT(option_get_gtk_widget (option));
+    gtk_tree_view_expand_all(GTK_TREE_VIEW(tree_view));
+}
+
+static void
+account_collapse_all_cb(GtkWidget *widget, gpointer data)
+{
+    GncOption* option = static_cast<decltype(option)>(data);
+    GncTreeViewAccount *tree_view;
+
+    tree_view = GNC_TREE_VIEW_ACCOUNT(option_get_gtk_widget (option));
+    gtk_tree_view_collapse_all(GTK_TREE_VIEW(tree_view));
+}
+
+static void
+account_expand_children_cb(GtkWidget *widget, gpointer data)
+{
+    GncOption* option = static_cast<decltype(option)>(data);
+    GncTreeViewAccount *tree_view;
+    GList *acct_list = NULL, *acct_iter = NULL;
+
+    tree_view = GNC_TREE_VIEW_ACCOUNT(option_get_gtk_widget (option));
+    acct_list = gnc_tree_view_account_get_selected_accounts (tree_view);
+
+    for (acct_iter = acct_list; acct_iter; acct_iter = acct_iter->next)
+        gnc_tree_view_account_expand_subaccounts (tree_view, static_cast<Account*>(acct_iter->data));
+
+    g_list_free (acct_list);
+}
+
+static void
 account_select_all_cb(GtkWidget *widget, gpointer data)
 {
     GncOption* option = static_cast<decltype(option)>(data);
@@ -1038,6 +1074,27 @@ create_account_widget(GncOption& option, char *name)
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
     g_signal_connect(G_OBJECT(button), "toggled",
                      G_CALLBACK(show_hidden_toggled_cb), &option);
+
+    button = gtk_button_new_with_label(_("Expand All"));
+    gtk_box_pack_start(GTK_BOX(bbox), button, FALSE, FALSE, 0);
+    gtk_widget_set_tooltip_text(button, _("Expand all accounts."));
+
+    g_signal_connect(G_OBJECT(button), "clicked",
+                     G_CALLBACK(account_expand_all_cb), &option);
+
+    button = gtk_button_new_with_label(_("Collapse All"));
+    gtk_box_pack_start(GTK_BOX(bbox), button, FALSE, FALSE, 0);
+    gtk_widget_set_tooltip_text(button, _("Collapse all accounts."));
+
+    g_signal_connect(G_OBJECT(button), "clicked",
+                     G_CALLBACK(account_collapse_all_cb), &option);
+
+    button = gtk_button_new_with_label(_("Expand Children"));
+    gtk_box_pack_start(GTK_BOX(bbox), button, FALSE, FALSE, 0);
+    gtk_widget_set_tooltip_text(button, _("Expand all descendents of selected account."));
+
+    g_signal_connect(G_OBJECT(button), "clicked",
+                     G_CALLBACK(account_expand_children_cb), &option);
 
     gtk_container_add(GTK_CONTAINER(scroll_win), tree);
     return frame;

@@ -1734,6 +1734,51 @@ gnc_tree_view_account_select_subaccounts (GncTreeViewAccount *view,
     return;
 }
 
+/*
+ * Selects all sub-accounts of an account.
+ */
+void
+gnc_tree_view_account_expand_subaccounts (GncTreeViewAccount *view,
+        Account *account)
+{
+    GtkTreeModel *s_model;
+    GtkTreePath *sp_account;
+    GtkTreeIter si_account;
+    gint num_children;
+
+    ENTER("view %p, account %p (%s)", view, account, xaccAccountGetName(account));
+
+    g_return_if_fail (GNC_IS_TREE_VIEW_ACCOUNT (view));
+
+    if (account == NULL)
+    {
+        LEAVE("no account");
+        return;
+    }
+
+    if (!gnc_tree_view_account_get_iter_from_account (view, account, &si_account))
+    {
+        LEAVE("view_get_iter_from_account failed");
+        return;
+    }
+
+    /* Any children? */
+    s_model = gtk_tree_view_get_model(GTK_TREE_VIEW(view));
+    num_children = gtk_tree_model_iter_n_children(s_model, &si_account);
+    if (num_children == 0)
+    {
+        LEAVE("no children");
+        return;
+    }
+
+    sp_account = gtk_tree_model_get_path (s_model, &si_account);
+    gtk_tree_view_expand_row (GTK_TREE_VIEW(view), sp_account, TRUE);
+
+    gtk_tree_path_free(sp_account);
+    LEAVE(" ");
+    return;
+}
+
 void
 gnc_tree_view_account_expand_to_account (GncTreeViewAccount *view,
         Account *account)

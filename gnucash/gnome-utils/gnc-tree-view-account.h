@@ -468,6 +468,17 @@ void gnc_tree_view_account_set_selected_accounts (GncTreeViewAccount *view,
 void gnc_tree_view_account_select_subaccounts (GncTreeViewAccount *view,
         Account *account);
 
+/** This function expands all sub-accounts of an account in the
+ *  account tree view.
+ *
+ *  @param view A pointer to an account tree view.
+ *
+ *  @param account A pointer to the account whose children should be
+ *  expanded.
+ */
+void gnc_tree_view_account_expand_subaccounts (GncTreeViewAccount *view,
+        Account *account);
+
 /** This function forces the account tree expand whatever levels are
  *  necessary to make the specified account visible.
  *

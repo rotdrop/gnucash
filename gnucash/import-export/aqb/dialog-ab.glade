@@ -810,7 +810,7 @@
                   <object class="GtkEntry" id="input_entry">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="visibility">False</property>
+                    <property name="visibility">True</property>
                     <property name="invisible-char">●</property>
                     <property name="primary-icon-activatable">False</property>
                     <property name="secondary-icon-activatable">False</property>
@@ -824,7 +824,7 @@
                   <object class="GtkEntry" id="confirm_entry">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="visibility">False</property>
+                    <property name="visibility">True</property>
                     <property name="invisible-char">●</property>
                     <property name="primary-icon-activatable">False</property>
                     <property name="secondary-icon-activatable">False</property>

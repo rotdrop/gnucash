@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
+<!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
   <object class="GtkDialog" id="aqbanking_connection_dialog">
@@ -738,7 +738,7 @@
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
                     <property name="icon-name">image-missing</property>
-                    <property name="icon-size">6</property>
+                    <property name="icon_size">6</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -810,7 +810,6 @@
                   <object class="GtkEntry" id="input_entry">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="visibility">True</property>
                     <property name="invisible-char">●</property>
                     <property name="primary-icon-activatable">False</property>
                     <property name="secondary-icon-activatable">False</property>
@@ -824,7 +823,6 @@
                   <object class="GtkEntry" id="confirm_entry">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="visibility">True</property>
                     <property name="invisible-char">●</property>
                     <property name="primary-icon-activatable">False</property>
                     <property name="secondary-icon-activatable">False</property>
@@ -1072,7 +1070,7 @@
               </packing>
             </child>
             <child>
-              <!-- n-columns=2 n-rows=20 -->
+              <!-- n-columns=2 n-rows=21 -->
               <object class="GtkGrid" id="grid">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
@@ -1229,20 +1227,6 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label8877435">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Payment Purpose continued</property>
-                    <property name="justify">center</property>
-                    <property name="xalign">0</property>
-                  </object>
-                  <packing>
-                    <property name="left-attach">0</property>
-                    <property name="top-attach">12</property>
-                    <property name="width">2</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkLabel" id="orig_name_heading">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
@@ -1253,7 +1237,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">0</property>
-                    <property name="top-attach">15</property>
+                    <property name="top-attach">16</property>
                   </packing>
                 </child>
                 <child>
@@ -1267,7 +1251,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">0</property>
-                    <property name="top-attach">16</property>
+                    <property name="top-attach">17</property>
                   </packing>
                 </child>
                 <child>
@@ -1279,7 +1263,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">0</property>
-                    <property name="top-attach">17</property>
+                    <property name="top-attach">18</property>
                   </packing>
                 </child>
                 <child>
@@ -1291,7 +1275,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">0</property>
-                    <property name="top-attach">18</property>
+                    <property name="top-attach">19</property>
                   </packing>
                 </child>
                 <child>
@@ -1303,7 +1287,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">1</property>
-                    <property name="top-attach">15</property>
+                    <property name="top-attach">16</property>
                   </packing>
                 </child>
                 <child>
@@ -1315,7 +1299,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">1</property>
-                    <property name="top-attach">16</property>
+                    <property name="top-attach">17</property>
                   </packing>
                 </child>
                 <child>
@@ -1327,7 +1311,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">1</property>
-                    <property name="top-attach">17</property>
+                    <property name="top-attach">18</property>
                   </packing>
                 </child>
                 <child>
@@ -1339,7 +1323,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">1</property>
-                    <property name="top-attach">18</property>
+                    <property name="top-attach">19</property>
                   </packing>
                 </child>
                 <child>
@@ -1355,6 +1339,7 @@
                   <packing>
                     <property name="left-attach">0</property>
                     <property name="top-attach">11</property>
+                    <property name="width">2</property>
                   </packing>
                 </child>
                 <child>
@@ -1370,6 +1355,7 @@
                   <packing>
                     <property name="left-attach">0</property>
                     <property name="top-attach">13</property>
+                    <property name="width">2</property>
                   </packing>
                 </child>
                 <child>
@@ -1383,8 +1369,9 @@
                     <signal name="changed" handler="gnc_ab_trans_dialog_verify_values" swapped="yes"/>
                   </object>
                   <packing>
-                    <property name="left-attach">1</property>
-                    <property name="top-attach">11</property>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">12</property>
+                    <property name="width">2</property>
                   </packing>
                 </child>
                 <child>
@@ -1398,8 +1385,9 @@
                     <signal name="changed" handler="gnc_ab_trans_dialog_verify_values" swapped="yes"/>
                   </object>
                   <packing>
-                    <property name="left-attach">1</property>
-                    <property name="top-attach">13</property>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">14</property>
+                    <property name="width">2</property>
                   </packing>
                 </child>
                 <child>
@@ -1419,7 +1407,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">0</property>
-                    <property name="top-attach">19</property>
+                    <property name="top-attach">20</property>
                     <property name="width">2</property>
                   </packing>
                 </child>
@@ -1430,7 +1418,7 @@
                   </object>
                   <packing>
                     <property name="left-attach">0</property>
-                    <property name="top-attach">14</property>
+                    <property name="top-attach">15</property>
                     <property name="width">2</property>
                   </packing>
                 </child>
@@ -1648,13 +1636,17 @@
   </object>
   <object class="GtkListStore" id="imexporter-list">
     <columns>
+      <!-- column-name gchararray -->
       <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
       <column type="gchararray"/>
     </columns>
   </object>
   <object class="GtkListStore" id="profile-list">
     <columns>
+      <!-- column-name gchararray -->
       <column type="gchararray"/>
+      <!-- column-name gchararray1 -->
       <column type="gchararray"/>
     </columns>
   </object>
@@ -1716,7 +1708,6 @@
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="border-width">5</property>
-            <property name="orientation">horizontal</property>
             <property name="spacing">18</property>
             <child>
               <object class="GtkScrolledWindow">
@@ -1727,10 +1718,13 @@
                 <property name="min-content-height">300</property>
                 <child>
                   <object class="GtkTreeView" id="imexporter-sel">
-                    <property name="model">imexporter-list</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="tooltip-text" translatable="yes">This list contains the file formats that AqBanking knows how to import. The profile list contains specializations and is populated according to which format you select in this list.</property>
+                    <property name="model">imexporter-list</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection" id="imex-selection"/>
+                    </child>
                     <child>
                       <object class="GtkTreeViewColumn" id="imexporter-name">
                         <property name="title" translatable="yes">File Format</property>
@@ -1753,10 +1747,6 @@
                         </child>
                       </object>
                     </child>
-                    <child internal-child="selection">
-                      <object class="GtkTreeSelection" id="imex-selection">
-                      </object>
-                    </child>
                   </object>
                 </child>
               </object>
@@ -1772,19 +1762,17 @@
                 <property name="can-focus">True</property>
                 <property name="hscrollbar-policy">never</property>
                 <property name="shadow-type">in</property>
-                <!--property name="title" translatable="yes">Import Template</property-->
                 <property name="min-content-height">300</property>
                 <child>
                   <object class="GtkTreeView" id="profile-sel">
-                    <property name="model">profile-list</property>
+                    <property name="width-request">400</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="tooltip-text" translatable="yes">This lists one or more specialization templates that adjust the import for different banks' uses of fields in the selected import format.</property>
-                    <!-- Request the maximum width for the profile
-                         list so that it doesn't change the dialog
-                         width when an imexporter with long
-                         descriptions is selected. -->
-                    <property name="width-request">400</property>
+                    <property name="model">profile-list</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection" id="prof-selection"/>
+                    </child>
                     <child>
                       <object class="GtkTreeViewColumn" id="profile-name">
                         <property name="title" translatable="yes">Profiles</property>
@@ -1805,10 +1793,6 @@
                             <attribute name="text">1</attribute>
                           </attributes>
                         </child>
-                      </object>
-                    </child>
-                    <child internal-child="selection">
-                      <object class="GtkTreeSelection" id="prof-selection">
                       </object>
                     </child>
                   </object>
